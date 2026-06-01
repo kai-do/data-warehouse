@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# VS Code
+.vscode/
+
+# Airflow runtime artifacts
+airflow.db
+airflow-webserver.pid
+airflow-scheduler.pid
+logs/
+
+# Local data and secrets
+data/raw/
+data/output/
+*.log

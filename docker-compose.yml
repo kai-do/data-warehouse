@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  # Placeholder Docker Compose file for the future local platform.
+  # PostgreSQL and Airflow services will be added during implementation.
+  postgres:
+    image: postgres:16
+    container_name: weather-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-weather_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-weather_password}
+      POSTGRES_DB: ${POSTGRES_DB:-weather_warehouse}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
