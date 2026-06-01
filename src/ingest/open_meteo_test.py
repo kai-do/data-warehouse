@@ -11,7 +11,7 @@ url = "https://api.open-meteo.com/v1/forecast"
 params = {
     "latitude": latitude,
     "longitude": longitude,
-    "minutely_15": (
+    "current": (
         "temperature_2m,relative_humidity_2m,dew_point_2m,apparent_temperature,"
         "pressure_msl,surface_pressure,cloud_cover,cloud_cover_low,cloud_cover_mid,cloud_cover_high,"
         "wind_speed_10m,wind_speed_80m,wind_speed_120m,wind_speed_180m,"
@@ -31,12 +31,6 @@ response.raise_for_status()
 
 payload = response.json()
 
-current = payload["minutely_15"]
+current = payload["current"]
 
-# print(json.dumps(payload, indent=2))
-
-# print just the first 15-minute interval
-first_interval = current["time"][0]
-first_interval_data = {key: current[key][0] for key in current if key != "time"}
-print(f"First 15-minute interval: {first_interval}")
-print(json.dumps(first_interval_data, indent=2))    
+print(json.dumps(current, indent=2))
